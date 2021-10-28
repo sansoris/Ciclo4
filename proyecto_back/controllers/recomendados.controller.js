@@ -65,3 +65,19 @@ exports.update = function (req, res) {
  
     })
 }
+
+exports.remove = function (req, res) {
+    Recomendado.findByIdAndRemove({_id: req.params.id}, function (err) {
+        if (err) {
+            console.error(err),
+                response.exito = false,
+                response.msg = "Error al eliminar el recomendado"
+                res.json(response)
+                return;
+        }
+        response.exito = true,
+        response.msg = "El recomendado se eliminó correctamente"
+        res.json(response)
+ 
+    })
+}

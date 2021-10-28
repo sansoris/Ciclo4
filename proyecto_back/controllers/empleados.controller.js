@@ -64,3 +64,19 @@ exports.update = function (req, res) {
  
     })
 }
+
+exports.remove = function (req, res) {
+    Empleado.findByIdAndRemove({_id: req.params.id}, function (err) {
+        if (err) {
+            console.error(err),
+                response.exito = false,
+                response.msg = "Error al eliminar el empleado"
+                res.json(response)
+                return;
+        }
+        response.exito = true,
+        response.msg = "El empleado se eliminó correctamente"
+        res.json(response)
+ 
+    })
+}

@@ -6,5 +6,6 @@ router.post("/", recomendadosController.create)
 router.get("/", recomendadosController.find)
 router.get("/:id", recomendadosController.findOne)
 router.put("/:id", recomendadosController.update)
+router.delete("/:id", recomendadosController.remove)
 
 module.exports = router
