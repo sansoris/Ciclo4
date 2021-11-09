@@ -9,6 +9,7 @@ var auth = require("./auth/main_auth");
 
 
 var empleadosRouter = require('./routes/empleados.router');
+var usuariosRouter = require('./routes/usuario.router');
 var recomendadosRouter = require('./routes/recomendados.router');
 
 
@@ -23,13 +24,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Mongo connection
 database.mongoConnect();
 
-app.use(auth);
-
+app.use('/usuarios', usuariosRouter);
+  
 //Router
 app.use('/empleados', empleadosRouter);
 app.use('/recomendados', recomendadosRouter);
 
-
+app.use(auth)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,7 +45,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json('error');
 });
 
 module.exports = app;

@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken")
-const { request} = require("../app")
 
 const auth = (req, res, next) => {
     try {
@@ -9,7 +8,7 @@ const auth = (req, res, next) => {
         next()
     } catch (error) {
         res.status(401)
-        res.json({ code: 4, msg:"No cuenta con los permisos para acceder" })
+        res.json({code: 4, msg:"No cuenta con los permisos para acceder" })
         
     }
 }
