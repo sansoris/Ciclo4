@@ -1,0 +1,14 @@
+#navbar .dropdown-header{
+    font-size:50px;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar #dropdown-basic-button{
+    background-color: #8b0000;
+    border-color: #8b0000;
+}
+
+#navbar {
+    background-color: #ffa07a;
+}

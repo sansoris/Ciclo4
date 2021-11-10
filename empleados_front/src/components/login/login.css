@@ -1,0 +1,19 @@
+#login-container {
+    margin-top: 10%;
+}
+
+#login-container h2,
+#login-container button,
+#login-container form {
+    width: 100%;
+}
+
+#login-container button{
+    margin-top: 15px;
+    background-color: #8b0000;
+    border-color: #8b0000;
+}
+
+#login-container .form-label {
+    float:left;
+}
