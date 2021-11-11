@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import { Navbar, Nav, Container, Dropdown, DropdownButton } from 'react-bootstrap';
+import { Navbar, Row, Nav, Container, Dropdown, DropdownButton } from 'react-bootstrap';
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import imagenes from '../assets/imagenes.js';
+
 
 export default class menu extends React.Component {
     constructor(props) {
@@ -11,18 +14,28 @@ export default class menu extends React.Component {
     }
     render() { 
         return (
-            <Navbar id= "navbar" expand="lg"  >
+            
+            <Navbar fixed="top" id="navbar" expand="lg"  >
+              
+                    <img src={imagenes.img1}
+                                justify="content-between"
+                                width="60"
+                                height="90"
+                                alt=""/>
+                
+
                 <Container>
-                    <Navbar.Brand href="#home">Se Lo Recomiendo
+                     <Navbar.Brand href="/home">Se Lo Recomiendo
                         <span id="usuario sub-branm"></span>
                     </Navbar.Brand>
                     
                     <Navbar.Toggle aria-controls="usuario-navbar-nav" />
                     <Navbar.Collapse id="usuario-navbar-nav">
                     <Nav className="me-auto">
-        {/* <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Quienes Somos</Nav.Link>
-                             */}
+                            <Nav.Link href="/quienes">Quienes Somos</Nav.Link>
+                            <Nav.Link href="/servicios">Servicios Disponibles</Nav.Link>
+                            <Nav.Link href="/terminos">Terminos y Condiciones</Nav.Link>
+                                        
 
         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -34,8 +47,12 @@ export default class menu extends React.Component {
                         </Nav>
                         <DropdownButton id="dropdown-basic-button" title="Usuario">
                             <Dropdown.Header>
-                                <FontAwesomeIcon icon={faUserCircle} />
-                               
+                                <Row>
+                                   <FontAwesomeIcon icon={faUserCircle} />
+                                </Row>
+                                <Row>
+                                    #USUARIO#
+                                </Row>
                              </Dropdown.Header>
                             <Dropdown.Item href="#/action-1">Cerrar Sesión</Dropdown.Item>
                             
@@ -43,8 +60,10 @@ export default class menu extends React.Component {
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
                     </DropdownButton>
     </Navbar.Collapse>
-  </Container>
-</Navbar>
+                </Container>
+                
+            </Navbar>
+            
         );
     }
 }
