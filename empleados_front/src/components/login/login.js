@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import { APIHOST as host } from '../app.json';
+import { APIHOST as host } from '../../App.json';
 import './login.css';
 import { isNull } from 'util';
 import Cookies from 'universal-cookie';
@@ -36,7 +36,7 @@ export default class login extends React.Component {
                         path: '/',
                         expires: calculaExpiracionSesion(),
                     });
-                    this.props.history.push("/recomendados");
+                    this.props.history.push('/recomendados'); // dashboard en usuario valido
                     }
                     this.setState({ loading: false });
             })

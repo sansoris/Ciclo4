@@ -13,7 +13,7 @@ export default class Base extends React.Component {
     render() {
         return (
             // <Footer class="Footer">
-            <div class="social-media">
+            <div class="social-media"  >
                 <h4 class="seccion-pie">Se Lo Recomiendo © 2021</h4>
                 <ul class="social">
                 <li>

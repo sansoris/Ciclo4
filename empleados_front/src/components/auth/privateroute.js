@@ -10,7 +10,7 @@ export default class PrivateRoute extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            auth: false
+            auth: false,
         }
     }
     //WARNING! To be deprecated in React v17. Use componentDidMount instead.
