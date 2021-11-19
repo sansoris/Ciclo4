@@ -48,8 +48,8 @@ exports.update = function (req, res) {
         telefono: req.body.telefono,
         ciudad: req.body.ciudad,
         servicio_1: req.body.servicio_1,
-        servicio_2:req.body.servicio_2,
-        servicio_3:req.body.servicio_3
+        servicio_2: req.body.servicio_2,
+        servicio_3: req.body.servicio_3
     }
     Recomendado.findByIdAndUpdate(req.params.id, { $set: recomendado }, function (err) {
         if (err) {

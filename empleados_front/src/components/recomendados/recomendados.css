@@ -1,5 +1,12 @@
-#recomendados-buscar-container {
-    margin-top: 150px;
+#recomendados-container{
+    margin-top: 100px;
+    
+
+}
+#recomendados-buscar-container, 
+#recomendados-crear-container {
+    margin-top: 110px;
+    color: #8b0000;
 }
 
 .reac-bs-table-sizePerPage-dropdown  .dropdown-toggle{
@@ -10,6 +17,7 @@
 .search-label {
     float: right;
     padding-bottom: 10px;
+    color: #8b0000;
 }
 
 

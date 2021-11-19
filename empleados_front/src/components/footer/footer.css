@@ -1,6 +1,6 @@
 .social-media {
-    background-color: #ffa07a;
-    padding-top: 1%;
+    /* background-color: #ffa07a; */
+    padding-top: 5%;
     /* opacity: 60%; */
     height: 55px;
     display: flex;
@@ -9,27 +9,32 @@
 }
 
  .social-media h4 {
+
     text-align: center;
 }
 
   .social {
+  
     text-align: center;
 }
 
  .social li {
+  
     display: inline-block;
 }
 
  .social a {
-    padding: 10px;
+ 
+    padding: 15px;
 }
 
 footer {
-    margin: 0;
+     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 .body {
+        padding-top: 5%;
     background: #ffa07a;
 }

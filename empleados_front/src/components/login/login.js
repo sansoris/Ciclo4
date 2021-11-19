@@ -5,7 +5,7 @@ import { APIHOST as host } from '../../App.json';
 import './login.css';
 import { isNull } from 'util';
 import Cookies from 'universal-cookie';
-import { calculaExpiracionSesion } from '../helpers/helper';
+import { calculaExpiracionSesion } from '../helper/helper';
 import Loading from '../loading/loading';
 
 const cookies = new Cookies();
@@ -38,6 +38,7 @@ export default class login extends React.Component {
                     });
                     this.props.history.push('/recomendados'); // dashboard en usuario valido
                     }
+                    
                     this.setState({ loading: false });
             })
             .catch((err) => {

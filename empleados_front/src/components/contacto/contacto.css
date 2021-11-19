@@ -1,0 +1,29 @@
+#contacto-container {
+    margin-top: 10%;
+    text-align: center;
+    
+    
+    
+}
+
+#contacto-container h2,
+#contacto-container button,
+#contacto-container form {
+    width: 100%;
+    line-height: 2.5; 
+    
+}
+
+#contacto-container button{
+    margin-top: 15px;
+    background-color: #8b0000;
+    border-color: #8b0000;
+    
+    
+}
+
+#contacto-container .form-label {
+    float:left;   
+    line-height: 3em; 
+    
+}

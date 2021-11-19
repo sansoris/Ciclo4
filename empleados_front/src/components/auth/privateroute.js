@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router';
-import { getSession } from '../helpers/helper';
+import { getSession } from '../helper/helper';
 
 const checkAuth = () => {
     return !getSession() ? false : true;

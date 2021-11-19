@@ -1,26 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import login from '../login/login';
-import PrivateRoute from '../auth/privateroute';
+import Login from '../login/login';
+// import PrivateRoute from '../auth/privateroute';
 
-
-import recomendados from '../recomendados/recomendados.buscar';
+import Buscar from '../crud/buscar';
+import Recomendados from '../crud';
+import Contacto from '../contacto/contacto';
 
 export default function AppRouter() {
     return (
         <Router>
             <Switch>
-                <Route exact path={['/', '/login']} component={login} />
+                <Route exact path={ ["/", "/login"] } component={ Login } />
                 {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
-                <PrivateRoute exact path={['/recomendados']} component={recomendados} />
+                <Route exact path={ ["/contacto"] } component={ Contacto }/>
+                <Route exact path={ ["/recomendados"] } component={ Recomendados } />
+                <Route exact path={ ["/buscar"] } component={ Buscar } />
 
-                <Route
-                    path={'*'} component={() => (
-                        <h1 style={{ marginTop: 150 }}>
-                            404
-                            <br />
-                            PAGINA NO ENCONTRADA
-                        </h1>
+                <Route path={ "*" } component={() => (
+                    <h1 style={{ marginTop: 250 }}>
+                     404
+                    <br />
+                    PAGINA NO ENCONTRADA
+                    </h1>
                     )}
                 />
             </Switch>
@@ -31,7 +33,7 @@ export default function AppRouter() {
 // function Dashboard() {
 //     return(
 //         <div>
-//         <h2> Menu usuario registrado</h2>
+//         <h2 style={{ marginTop: 200 }} > Menu usuario registrado</h2>
 //         </div>
 // )
 // }
