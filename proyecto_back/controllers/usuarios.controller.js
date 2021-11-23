@@ -2,6 +2,11 @@ const Usuario = require("../models/usuarios.models");
 const crypto = require("crypto")
 const jwt = require("jsonwebtoken")
 
+// let response = {
+//     msg: "",
+//     exito: false,
+// }
+
 exports.login = function (req, res, next) {
     let hashedpass = crypto.createHash("sha512").update(req.body.pass).digest("hex");
 
@@ -16,8 +21,9 @@ exports.login = function (req, res, next) {
             }, "_recret_")
         }
         res.json(response);
+        // console.log(response)
     })
-}
+}   
 
 exports.register = function (req, res) {
     let hashedpass = crypto.createHash("sha512").update(req.body.pass).digest("hex");
@@ -27,13 +33,14 @@ exports.register = function (req, res) {
     })
     usuario.save(function (err) {
         if (err) {
-            console.log = false,
-                response.exito = "Error al crear el usuario"
+            // console.log = false,
+            response.exito = false,
+            response.exito = "Error al crear el usuario"
             res.json(response)
             return;
         }
         response.exito = true,
-            response.msg = "El usuario se creó correctamente"
+        response.msg = "El usuario se creó correctamente"
         res.json(response)
     })
 }

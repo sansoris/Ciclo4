@@ -18,7 +18,7 @@ export default class Datagrid extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            Loading:false,
+            loading: false,
             rows:[],
         };
     }
@@ -28,11 +28,11 @@ export default class Datagrid extends React.Component {
     }
 
     getData() {
-        this.setState({ loading: true });
+        this.setState({ loading: false });
         request
             .get(this.props.url)
             .then((response) => {
-                this.setState({ rows: response.data, loading:false, });
+                this.setState({ rows: response.data, Loading: false, });
             })
             .catch((err) => {
                 this.setState({ loading: false });

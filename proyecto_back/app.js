@@ -8,9 +8,8 @@ var auth = require("./auth/main_auth");
 var cors = require('cors');
 
 
-
-var empleadosRouter = require('./routes/empleados.router');
 var usuariosRouter = require('./routes/usuario.router');
+var empleadosRouter = require('./routes/empleados.router');
 var recomendadosRouter = require('./routes/recomendados.router');
 
 

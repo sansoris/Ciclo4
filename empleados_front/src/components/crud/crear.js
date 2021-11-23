@@ -12,8 +12,8 @@ export default class Recomendadoscrear extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: false,
             recomendados: {
-                loading:false,
                 nombre: "",
                 apellido_p: "",
                 telefono: "",
@@ -44,7 +44,7 @@ export default class Recomendadoscrear extends React.Component {
             .catch((err) => {
                 console.error(err);
                 this.setState({ loading: true });
-        })
+            });
 }
     render() {
         return (
@@ -116,9 +116,9 @@ export default class Recomendadoscrear extends React.Component {
                    
                     <div class="enviar">
                             <input class="boton" type="submit" value="Recomendar" onClick={() => console.log(this.guardarRecomendados())} />
-                            <Form.Control
+                            {/* <Form.Control
                                 onChange = {(e) => this.setValue('Servicio_4', e.target.value)}
-                            />
+                            /> */}
                     </div>
                 </div>
                 </form>

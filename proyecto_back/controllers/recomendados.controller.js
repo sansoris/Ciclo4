@@ -7,7 +7,7 @@ let response = {
 exports.create = function (req, res) {
     let recomendado = new Recomendado({
         nombre: req.body.nombre,
-        apellido_p: req.body.apellido_p,
+        apellido: req.body.apellido,
         telefono: req.body.telefono,
         ciudad: req.body.ciudad,
         servicio_1: req.body.servicio_1,
@@ -36,22 +36,22 @@ exports.find = function (req, res) {
 }
 
 exports.findOne = function (req, res) {
-    Recomendado.findOne({_id: req.params.id }, function (err, recomendados) {
-        res.json(recomendados)
+    Recomendado.findOne({_id: req.params.id }, function (err, recomendado) {
+        res.json(recomendado)
     })
 }
 
 exports.update = function (req, res) {
     let recomendado = {
         nombre: req.body.nombre,
-        apellido_p: req.body.apellido_p,
+        apellido: req.body.apellido,
         telefono: req.body.telefono,
         ciudad: req.body.ciudad,
         servicio_1: req.body.servicio_1,
         servicio_2: req.body.servicio_2,
         servicio_3: req.body.servicio_3
     }
-    Recomendado.findByIdAndUpdate(req.params.id, { $set: recomendado }, function (err) {
+    Recomendado.findByIdAndUpdate(req.params.id, {$set: recomendado}, function (err) {
         if (err) {
             console.error(err),
                 response.exito = false,
