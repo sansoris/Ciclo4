@@ -3,14 +3,21 @@ import { Container, Row, Nav } from 'react-bootstrap';
 import '../recomendados/recomendados.css';
 import RecomendadosBuscar from './buscar';
 import RecomendadosCrear from './crear';
+import RecomendadosEditar from './editar';
+
 
 export default class Recomendados extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             currentTab: "buscar"
-         }
+        };
     }
+
+    changeTab(tab) {
+        this.setState({ current: tab });
+}
+
     render() { 
         return (
             <Container id= "recomendados-buscar-container" >
@@ -30,9 +37,12 @@ export default class Recomendados extends React.Component {
                     </Nav>
                     <Row>
                         {this.state.currentTab === "buscar" ? (
-                            <RecomendadosBuscar /> 
+                        <RecomendadosBuscar changeTab={(this.changeTab)} /> 
+                        ) : this.state.currentTab === "crear"? (                            
+                        <RecomendadosCrear changeTab={(tab) => this.changeTab(tab)} /> 
                         ) : (
-                        <RecomendadosCrear /> 
+                         <RecomendadosEditar /> 
+                        
                         )}
                     </Row>
 </Row>

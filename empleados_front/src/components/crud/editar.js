@@ -8,7 +8,7 @@ import '../assets/css/responsive.css';
 import '../assets/css/jquery.mCustomScrollbar.min.css';
 
 
-export default class Recomendadoscrear extends React.Component {
+export default class RecomendadosEditar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -56,7 +56,7 @@ export default class Recomendadoscrear extends React.Component {
                 <Loading show={ this.state.loading } />
              <Row>
                     <h2>
-                        Crear Recomendado
+                        Editar Recomendado
                     </h2>
 
                 </Row>

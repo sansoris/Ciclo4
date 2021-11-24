@@ -29,8 +29,8 @@ export default class Home extends React.Component {
                         className="banner"
                         src={uno}
                         alt="First slide" />
-                    <Carousel.Caption>
-                        <h5>Se lo Recomiendo</h5>
+                    <Carousel.Caption >
+                        <h1>Se lo Recomiendo</h1>
                         <p>Ofrece la solución que su hogar necesita.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
@@ -40,8 +40,8 @@ export default class Home extends React.Component {
                         src={dos}
                         alt="Second slide" />
                     <Carousel.Caption>
-                        <h5>Se lo Recomiendo</h5>
-                        <p>Ofrece la solución que su hogar necesita.</p>
+                        <h1>Se lo Recomiendo</h1>
+                        <p>¿Cómo funciona?.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -50,8 +50,8 @@ export default class Home extends React.Component {
                         src={tres}
                         alt="Third slide" />
                     <Carousel.Caption>
-                        <h5>Se lo Recomiendo</h5>
-                        <p>Ofrece la solución que su hogar necesita.</p>
+                        <h1>Se lo Recomiendo</h1>
+                        <p>Encontrar varios servicios en un solo lugar.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
@@ -84,7 +84,7 @@ export default class Home extends React.Component {
                 </Card>
                 
                          <Card style={{ width: '10rem' }}>
-                        <Card.Img variant="top" src={card3} />
+                        <Card.Img variant="top" src={card3}  />
                         <Card.Body>
                             <Card.Title>Califica el servicio</Card.Title>
                             <Card.Text>

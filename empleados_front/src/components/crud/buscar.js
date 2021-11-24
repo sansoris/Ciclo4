@@ -43,19 +43,29 @@ const columns = [{
 export default class RecomendadosBuscar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = { };
+        this.onClickEditButton = this.onClickEditButton.bind(this);
     }
 
-    componentDidMount() {}
+  componentDidMount() { }
+  
+  onClickEditButton() {
+      this.props.changeTab('editar');
+      }
+    
 
   render() {
     return (
             <Container id= "recomendados-buscar-container">
                 <Row>
-                    <h2> Recomendados </h2>
+                    <h2> Buscar Recomendados </h2>
                 </Row>
                 <Row>
-                    <Datagrid  url='/recomendados' columns={ columns }/>
+          <Datagrid url='/recomendados'
+            columns={columns}
+            showEditButton={true}
+            onClickEditButton = {this.onClickEditButton}
+          />
                 </Row>
             </Container>
         );

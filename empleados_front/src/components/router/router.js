@@ -15,14 +15,14 @@ export default function AppRouter() {
     return (
         <Router>
             <Switch>
-                <Route exact path={ ["/", "/login"] } component={ Login } />
+                <Route exact path={ ["/", "/home"] } component={ Home } />
                 {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
                 <Route exact path={ ["/contacto"] } component={ Contacto }/>
                 <Route exact path={ ["/recomendados"] } component={ Recomendados } />
                 <Route exact path={["/buscar"]} component={Buscar} />
                 <Route exact path={ ["/quienes"] } component={ Quienes } />
                 <Route exact path={["/recomendar"]} component={Recomendar} />
-                <Route exact path={["/home"]} component={ Home } />
+                <Route exact path={["/login"]} component={ Login } />
                 
 
                 <Route path={ "*" } component={() => (

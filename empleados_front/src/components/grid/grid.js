@@ -1,16 +1,20 @@
 import React from 'react';
+import {Button, Row, Col } from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import paginationFactory, {
     PaginationProvider ,
     PaginationListStandalone,
-    SizePerPageDropdownStandalone,
+    SizePerPageDropdownStandalone, 
 } from 'react-bootstrap-table2-paginator';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
-import { Row, Col } from 'react-bootstrap';
 // import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
 import { request } from '../helper/helper';
 import Loading from '../loading/loading';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { isUndefined } from 'util';
 
 const { SearchBar } = Search;
 
@@ -19,8 +23,12 @@ export default class Datagrid extends React.Component {
         super(props);
         this.state = {
             loading: false,
-            rows:[],
+            rows: [],
+           
         };
+    
+        if (this.props.showEditButton && !this.existsColumn('Editar'))
+            this.props.columns.push(this.getEditButton());
     }
 
     componentDidMount() {
@@ -28,11 +36,14 @@ export default class Datagrid extends React.Component {
     }
 
     getData() {
-        this.setState({ loading: false });
+        this.setState({loading:true });
         request
             .get(this.props.url)
             .then((response) => {
-                this.setState({ rows: response.data, loading: false, });
+                this.setState({
+                    rows: response.data,
+                    loading: false,
+                });
             })
             .catch((err) => {
                 this.setState({ loading: false });
@@ -40,10 +51,30 @@ export default class Datagrid extends React.Component {
             });
     }
 
+    existsColumn(colText) {
+        let col = this.props.columns.find((column) => column.text === colText);
+        return !isUndefined(col);
+   }
+
+    getEditButton() {
+        return {
+            text:'Editar',
+            formatter: function priceFormatter(cell, row ) {
+                // console.log(row);
+                return (
+                    <Button onClick={() => this.props.onClickEditButton()}>
+                        <FontAwesomeIcon icon={faEdit}  />
+                    </Button>
+                )
+            }
+            
+        }
+    }
+
     render() {
         const options = {
             custom: true,
-            totalSize: this.state.rows.length,
+            totalSize: this.state.rows.length
         };
         
         return (
