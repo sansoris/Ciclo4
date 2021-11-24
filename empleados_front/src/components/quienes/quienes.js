@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import quienes01 from '../assets/img/quienes01.jpg';
 // import { img } from '../assets/img';
 import '../assets/css/bootstrap.min.css';
 import '../assets/css/style.css';
@@ -46,7 +47,7 @@ export default class Quienes extends React.Component {
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                             <div class="images_box">
-                                                <img src=" ../img/quienes01.jpg" />
+                                                <img src={quienes01} />
                                             </div>
                                         </div>
                                     </div>

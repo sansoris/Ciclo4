@@ -8,6 +8,7 @@ import Recomendados from '../crud';
 import Contacto from '../contacto/contacto';
 import Quienes from '../quienes/quienes';
 import Recomendar from '../recomendar/recomendar';
+import Home from '../home/home';
 
 
 export default function AppRouter() {
@@ -21,7 +22,9 @@ export default function AppRouter() {
                 <Route exact path={["/buscar"]} component={Buscar} />
                 <Route exact path={ ["/quienes"] } component={ Quienes } />
                 <Route exact path={["/recomendar"]} component={Recomendar} />
+                <Route exact path={["/home"]} component={ Home } />
                 
+
                 <Route path={ "*" } component={() => (
                     <h1 style={{ marginTop: 250 }}>
                      404

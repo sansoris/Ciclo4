@@ -1,9 +1,7 @@
-#recomendar-container, 
-.contacto {
-         margin-top: 200%;
+#recomendar-container {
+         margin-top: 10%;
          text-align: center;
-         /* padding: 6px 10px;
-         box-sizing: border-box; */
+     
      }
 
      #recomendar-container[type=text]:focus {

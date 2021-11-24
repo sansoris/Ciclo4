@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { Form, Container, Row, Col } from "react-bootstrap";
+import './recomendar.css';
 import '../assets/css/bootstrap.min.css';
 import '../assets/css/style.css';
 import '../assets/css/responsive.css';
@@ -28,34 +29,36 @@ export default class Recomendar extends React.Component {
     render() {
         return (
             <Container id="recomendar-container">
-                
-  <div id="contacto" class="contacto">
-     <h1>Una vez leído terminos y condiciones, por favor diligencie todos los campos</h1>
-        <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridName">
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control type="text" placeholder="Ingrese su nombre" />
-                </Form.Group>
+            <Row>
+            <Col>
+                <Row>
+                <h2> Una vez leído terminos y condiciones, por favor diligencie todos los campos </h2>
+                </Row>
+                    <Form>
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formGridName">
+                                <Form.Label>Nombre</Form.Label>
+                                <Form.Control type="text" placeholder="Ingrese su nombre" />
+                            </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridLastName">
-                    <Form.Label>Apellido</Form.Label>
-                    <Form.Control type="text" placeholder="Ingrese su Apellido" />
-                </Form.Group>
+                            <Form.Group as={Col} controlId="formGridLastName">
+                                <Form.Label>Apellido</Form.Label>
+                                <Form.Control type="text" placeholder="Ingrese su Apellido" />
+                            </Form.Group>
       
-                <Form.Group as={Col} controlId="formGridZip">
-                    <Form.Label>Telefóno</Form.Label>
-                    <Form.Control type="text" placeholder="Ingrese su teléfono"/>
-                </Form.Group>            
+                            <Form.Group as={Col} controlId="formGridZip">
+                                <Form.Label>Telefóno</Form.Label>
+                                <Form.Control type="text" placeholder="Ingrese su teléfono"/>
+                            </Form.Group>            
 
-        
-                <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>Ciudad</Form.Label>
-                    <Form.Control type="text" placeholder="Ingrese su ciudad" />
-                </Form.Group>             
-  </Row>
-                
+                            <Form.Group as={Col} controlId="formGridCity">
+                                <Form.Label>Ciudad</Form.Label>
+                                <Form.Control type="text" placeholder="Ingrese su ciudad" />
+                            </Form.Group>             
+                        </Row>
+                    </Form>
 
- <div class="form-check">
+                 <div class="form-check">
                          <p>Relacione el (los) servicios que puede prestar </p>
                         {/* <input type="checkbox" class="form-check-input" id="checkbox1" value="" /> */}
                             <label for="checkbox1" class="form-check-label">Servicio 1</label>
@@ -77,23 +80,19 @@ export default class Recomendar extends React.Component {
                                 onChange = {(e) => this.setValue('Servicio_3', e.target.value)}
                             />
                     </div>
-
-
-
-
+                   
+                   
                     <div class="enviar">
-                        <input class="boton" type="submit" value="Recomendar" />
+                            <input class="boton" type="submit" value="Recomendar" onClick={() => console.log(this.guardarRecomendados())} />
+                            {/* <Form.Control
+                                onChange = {(e) => this.setValue('Servicio_4', e.target.value)}
+                            /> */}
                     </div>
-            
-        </div>
-    
-            <div class="row">
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12"></div>
-                <div class="text-bg">
-                 
-            </div>
-</div>
-                </Container>
+
+           
+            </Col>
+        </Row> 
+    </Container>
             
         );
     }
