@@ -44,4 +44,22 @@ export const request = {
             },
         });
     },
+
+    delete: function (services, data) {
+        let token = renovarSesion();
+        return axios.delete(`${host}${services}`, data,  {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+    },
+
+    put: function (services, data) {
+        let token = renovarSesion();
+        return axios.put(`${host}${services}`, data,  {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+    },
 };

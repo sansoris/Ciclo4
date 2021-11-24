@@ -1,0 +1,40 @@
+#recomendar-container, 
+.contacto {
+         margin-top: 200%;
+         text-align: center;
+         /* padding: 6px 10px;
+         box-sizing: border-box; */
+     }
+
+     #recomendar-container[type=text]:focus {
+         background-color: lightblue;
+     }
+
+ #recomendar-container[type=mb-3] {
+         padding: 6px 10px;
+         margin: 4px 2px;
+         box-sizing: border-box;
+     }
+     #recomendar-container .form-label {
+         float: left;
+         line-height: 3em;
+
+     }
+
+    #recomendar-container[type=email] {
+         padding: 6px 10px;
+         margin: 4px 2px;
+         box-sizing: border-box;
+     }
+
+  #recomendar-container[type=button],
+   #recomendar-container[type=submit],
+    #recomendar-container[type=reset] {
+         background-color: #4CAF50;
+         border: none;
+         color: white;
+         padding: 16px 32px;
+         text-decoration: none;
+         margin: 4px 2px;
+         cursor: pointer;
+     }

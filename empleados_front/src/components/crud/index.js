@@ -17,13 +17,14 @@ export default class Recomendados extends React.Component {
                 <Row>
                     <Nav fill variant="tabs" defaultActiveKey="/buscar"
                         onSelect={(eventKey) =>
+                            // console.log(eventKey)
                             this.setState({ currentTab: eventKey })}
                     >
                     <Nav.Item>
-                    <Nav.Link eventKey="link-1">Buscar</Nav.Link>
+                    <Nav.Link eventKey="buscar">Buscar</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                    <Nav.Link eventKey="link-2">Crear</Nav.Link>
+                    <Nav.Link eventKey="crear">Crear</Nav.Link>
                     </Nav.Item>
   
                     </Nav>

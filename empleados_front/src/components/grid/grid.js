@@ -32,7 +32,7 @@ export default class Datagrid extends React.Component {
         request
             .get(this.props.url)
             .then((response) => {
-                this.setState({ rows: response.data, Loading: false, });
+                this.setState({ rows: response.data, loading: false, });
             })
             .catch((err) => {
                 this.setState({ loading: false });
@@ -43,7 +43,7 @@ export default class Datagrid extends React.Component {
     render() {
         const options = {
             custom: true,
-            totalSize: this.state.rows.length
+            totalSize: this.state.rows.length,
         };
         
         return (

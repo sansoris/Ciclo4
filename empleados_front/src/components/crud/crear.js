@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Form } from 'react-bootstrap';
-import { request } from '../helper/helper'
+import { request } from '../helper/helper';
 import Loading from '../loading/loading';
 import '../assets/css/bootstrap.min.css';
 import '../assets/css/style.css';
@@ -13,9 +13,9 @@ export default class Recomendadoscrear extends React.Component {
         super(props);
         this.state = {
             loading: false,
-            recomendados: {
+            recomendado: {
                 nombre: "",
-                apellido_p: "",
+                apellido: "",
                 telefono: "",
                 ciudad: "",
                 servicio_1: "",
@@ -27,8 +27,8 @@ export default class Recomendadoscrear extends React.Component {
 
     setValue(index, value) {
         this.setState ({
-            recomendados: {
-                ...this.state.recomendados,
+            recomendado: {
+                ...this.state.recomendado,
                     [index]: value, 
             },
         })
@@ -36,7 +36,7 @@ export default class Recomendadoscrear extends React.Component {
     guardarRecomendados() {
         this.setState({ loading: true });
         request
-            .post('/recomendados', this.state.recomendados)
+            .post('/recomendados', this.state.recomendado)
             .then((response) => {
                 this.setState({ loading: false })
                 console.log(response.data);
@@ -133,6 +133,6 @@ export default class Recomendadoscrear extends React.Component {
            
     )
     
-    }
+    } 
 
 }

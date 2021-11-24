@@ -6,7 +6,7 @@ import Datagrid from '../grid/grid';
 const columns = [{
   dataField: 'id',
   text: 'Recomendado ID',
-  // hidden: true, 
+  hidden: true, 
 },
     {
   dataField: 'nombre',
@@ -46,22 +46,17 @@ export default class RecomendadosBuscar extends React.Component {
         this.state = {};
     }
 
-    // componentDidMount() {
-       
-    // }
+    componentDidMount() {}
 
   render() {
     return (
             <Container id= "recomendados-buscar-container">
                 <Row>
-                    <h2>
-                        Recomendados
-                    </h2>
+                    <h2> Recomendados </h2>
                 </Row>
                 <Row>
-                    <Datagrid  url='/buscar' columns={ columns }/>
+                    <Datagrid  url='/recomendados' columns={ columns }/>
                 </Row>
-               
             </Container>
         );
     }

@@ -6,6 +6,9 @@ import Login from '../login/login';
 import Buscar from '../crud/buscar';
 import Recomendados from '../crud';
 import Contacto from '../contacto/contacto';
+import Quienes from '../quienes/quienes';
+import Recomendar from '../recomendar/recomendar';
+
 
 export default function AppRouter() {
     return (
@@ -15,8 +18,10 @@ export default function AppRouter() {
                 {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
                 <Route exact path={ ["/contacto"] } component={ Contacto }/>
                 <Route exact path={ ["/recomendados"] } component={ Recomendados } />
-                <Route exact path={ ["/buscar"] } component={ Buscar } />
-
+                <Route exact path={["/buscar"]} component={Buscar} />
+                <Route exact path={ ["/quienes"] } component={ Quienes } />
+                <Route exact path={["/recomendar"]} component={Recomendar} />
+                
                 <Route path={ "*" } component={() => (
                     <h1 style={{ marginTop: 250 }}>
                      404
