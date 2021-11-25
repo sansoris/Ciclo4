@@ -10,13 +10,25 @@ export default class Recomendados extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentTab: "buscar"
+            currentTab: "buscar",
+            _id: null,
         };
+        this.changeTab = This.changeTab.bind(this)
+        this.setIdRecomendado =this.setIdRecomendado.bind(this)
+        this.getIdRecomendado =this.getIdRecomendado.bind(this)
+            
     }
 
     changeTab(tab) {
         this.setState({ current: tab });
 }
+    
+    setIdRecomendado(id){
+        this.setState ({ _id: id});
+    }
+    getIdRecomendado (){
+        return this.state._id;
+    }
 
     render() { 
         return (
