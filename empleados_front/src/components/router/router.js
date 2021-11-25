@@ -9,6 +9,7 @@ import Contacto from '../contacto/contacto';
 import Quienes from '../quienes/quienes';
 import Recomendar from '../recomendar/recomendar';
 import Home from '../home/home';
+import Terminos from '../terminos/terminos';
 
 
 export default function AppRouter() {
@@ -17,13 +18,13 @@ export default function AppRouter() {
             <Switch>
                 <Route exact path={ ["/", "/home"] } component={ Home } />
                 {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
-                <Route exact path={ ["/contacto"] } component={ Contacto }/>
+                <Route exact path={["/login"]} component={ Login } />
+                <Route exact path={["/contacto"]} component={Contacto} />
                 <Route exact path={ ["/recomendados"] } component={ Recomendados } />
                 <Route exact path={["/buscar"]} component={Buscar} />
                 <Route exact path={ ["/quienes"] } component={ Quienes } />
                 <Route exact path={["/recomendar"]} component={Recomendar} />
-                <Route exact path={["/login"]} component={ Login } />
-                
+                <Route exact path={["/terminos"]} component={ Terminos } />
 
                 <Route path={ "*" } component={() => (
                     <h1 style={{ marginTop: 250 }}>

@@ -28,10 +28,10 @@ export default class Recomendados extends React.Component {
                             this.setState({ currentTab: eventKey })}
                     >
                     <Nav.Item>
-                    <Nav.Link eventKey="buscar">Buscar</Nav.Link>
+                    <Nav.Link eventKey="buscar" style={{ color: "#8b0000" }}>Buscar</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                    <Nav.Link eventKey="crear">Crear</Nav.Link>
+                    <Nav.Link eventKey="crear" style={{ color: "#8b0000" }}>Crear</Nav.Link>
                     </Nav.Item>
   
                     </Nav>

@@ -7,7 +7,7 @@ import Plomero01 from '../assets/img/Plomero01.jpg';
 import Electrico01 from '../assets/img/Electrico01.jpg';
 
 
-export default class Quienesd extends React.Component {
+export default class Quienes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {  }

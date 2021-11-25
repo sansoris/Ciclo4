@@ -96,21 +96,21 @@ export default class Recomendadoscrear extends React.Component {
                     <div class="form-check">
                          <p>Relacione el (los) servicios que puede prestar </p>
                         {/* <input type="checkbox" class="form-check-input" id="checkbox1" value="" /> */}
-                            <label for="checkbox1" class="form-check-label">Servicio 1</label>
+                            <label >Servicio 1</label>
                             <Form.Control
                                 onChange = {(e) => this.setValue('Servicio_1', e.target.value)}
                             />
                     </div>
                     <div class="form-check">
                         {/* <input type="checkbox" class="form-check-input" id="checkbox2" value="" /> */}
-                            <label for="checkbox2" class="form-check-label">Servicio 2</label>
+                            <label >Servicio 2</label>
                             <Form.Control
                                 onChange = {(e) => this.setValue('Servicio_2', e.target.value)}
                             />
                     </div>
                     <div class="form-check">
                         {/* <input type="checkbox" class="form-check-input" id="checkbox3" value="" /> */}
-                            <label for="checkbox3" class="form-check-label">Servicio 3</label>
+                            <label >Servicio 3</label>
                             <Form.Control
                                 onChange = {(e) => this.setValue('Servicio_3', e.target.value)}
                             />
