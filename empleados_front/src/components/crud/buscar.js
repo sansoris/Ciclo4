@@ -49,7 +49,7 @@ export default class RecomendadosBuscar extends React.Component {
 
   componentDidMount() { }
   
-  onClickEditButton() {
+  onClickEditButton(row) {
       this.props.changeTab('editar');
       }
     
