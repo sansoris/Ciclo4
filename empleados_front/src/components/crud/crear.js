@@ -19,8 +19,8 @@ export default class Recomendadoscrear extends React.Component {
                 telefono: "",
                 ciudad: "",
                 servicio_1: "",
-                servicio_2:"",
-                servicio_3:""
+                servicio_2: "",
+                servicio_3: ""
             }
         };
     }
@@ -93,28 +93,30 @@ export default class Recomendadoscrear extends React.Component {
                                 onChange = {(e) => this.setValue('ciudad', e.target.value)}
                             />
                     </div>
-                    <div class="form-check">
+                     <div class="form-check">
                          <p>Relacione el (los) servicios que puede prestar </p>
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox1" value="" /> */}
-                            <label >Servicio 1</label>
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Servicio 1</Form.Label>
                             <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_1', e.target.value)}
+                                value= { this.state.recomendado.servicio_1 }
+                                onChange = {(e) => this.setValue('servicio_1', e.target.value)}
                             />
-                    </div>
-                    <div class="form-check">
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox2" value="" /> */}
-                            <label >Servicio 2</label>
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Servicio 2</Form.Label>
                             <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_2', e.target.value)}
+                            value= { this.state.recomendado.servicio_2 }
+                            onChange = {(e) => this.setValue('servicio_2', e.target.value)}
                             />
-                    </div>
-                    <div class="form-check">
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox3" value="" /> */}
-                            <label >Servicio 3</label>
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Servicio 3</Form.Label>
                             <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_3', e.target.value)}
+                            value= { this.state.recomendado.servicio_3 }
+                            onChange = {(e) => this.setValue('servicio_3', e.target.value)}
                             />
-                    </div>
+                        </div>
                    
                    
                     <div class="enviar">

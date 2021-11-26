@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Row, Nav } from 'react-bootstrap';
-import '../recomendados/recomendados.css';
+
 import RecomendadosBuscar from './buscar';
 import RecomendadosCrear from './crear';
 import RecomendadosEditar from './editar';
 
+import '../recomendados/recomendados.css';
 
 export default class Recomendados extends React.Component {
     constructor(props) {
@@ -13,19 +14,20 @@ export default class Recomendados extends React.Component {
             currentTab: "buscar",
             _id: null,
         };
+
         this.changeTab = this.changeTab.bind(this)
         this.setIdRecomendado =this.setIdRecomendado.bind(this)
         this.getIdRecomendado =this.getIdRecomendado.bind(this)
-            
     }
 
     changeTab(tab) {
-        this.setState({ current: tab });
+        this.setState({ currentTab: tab });
 }
     
     setIdRecomendado(id){
         this.setState ({ _id: id});
     }
+
     getIdRecomendado (){
         return this.state._id;
     }
@@ -49,11 +51,18 @@ export default class Recomendados extends React.Component {
                     </Nav>
                     <Row>
                         {this.state.currentTab === "buscar" ? (
-                        <RecomendadosBuscar changeTab={(this.changeTab)} /> 
+                            <RecomendadosBuscar
+                                changeTab={(this.changeTab)}
+                                setIdRecomendado={this.setIdRecomendado}
+                            />
                         ) : this.state.currentTab === "crear"? (                            
-                        <RecomendadosCrear changeTab={(tab) => this.changeTab(tab)} /> 
+                                <RecomendadosCrear
+                                    changeTab={(tab) => this.changeTab(tab)} />
                         ) : (
-                         <RecomendadosEditar /> 
+                                    <RecomendadosEditar
+                                        changeTab={(this.changeTab)}
+                                        getIdRecomendado={this.getIdRecomendado}
+                                    />
                         
                         )}
                     </Row>

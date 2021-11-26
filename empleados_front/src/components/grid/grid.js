@@ -18,6 +18,8 @@ import { isUndefined } from 'util';
 
 const { SearchBar } = Search;
 
+
+
 export default class Datagrid extends React.Component {
     constructor(props) {
         super(props);
@@ -36,13 +38,13 @@ export default class Datagrid extends React.Component {
     }
 
     getData() {
-        this.setState({loading:true });
+        this.setState({loading:false });
         request
             .get(this.props.url)
             .then((response) => {
                 this.setState({
                     rows: response.data,
-                    loading: false,
+                    Loading: false,
                 });
             })
             .catch((err) => {

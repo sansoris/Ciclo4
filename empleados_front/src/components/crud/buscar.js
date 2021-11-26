@@ -50,7 +50,11 @@ export default class RecomendadosBuscar extends React.Component {
   componentDidMount() { }
   
   onClickEditButton(row) {
-      this.props.changeTab('editar');
+ 
+    this.props.setIdRecomendado(row._id);
+    
+    this.props.changeTab('editar');
+    
       }
     
 

@@ -12,6 +12,13 @@ export default class RecomendadosEditar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            idRecomendado: this.props.getIdRecomendado(),
+            rediret: false,
+            message: {
+                text: '',
+                show: false, 
+            },
+
             loading: false,
             recomendado: {
                 nombre: "",
@@ -19,11 +26,35 @@ export default class RecomendadosEditar extends React.Component {
                 telefono: "",
                 ciudad: "",
                 servicio_1: "",
-                servicio_2:"",
-                servicio_3:""
+                servicio_2: "",
+                servicio_3: ""
             }
         };
     }
+
+
+    componentDidMount() {
+        this.getRecomendado();
+    }
+
+
+    getRecomendado() {
+        this.setState({ loading: true });
+        request
+            .get(`/recomendados/${this.state.idRecomendado}`)
+            .then((response) => {
+                this.setState({
+                    recomendado: response.data,
+                    loading:false,
+                })
+                // console.log(response);
+                // this.setState({ loading: false });
+            })
+            .catch((err) => {
+                console.error(err);
+                this.setState({ loading: false });
+            });
+}
 
     setValue(index, value) {
         this.setState ({
@@ -36,10 +67,18 @@ export default class RecomendadosEditar extends React.Component {
     guardarRecomendados() {
         this.setState({ loading: true });
         request
-            .post('/recomendados', this.state.recomendado)
+            
+            .put(`/recomendados/${this.state.idRecomendado}`, this.state.recomendado)
             .then((response) => {
                 if (response.data.exito) {
-                    this.props.changeTab('buscar');
+                    this.setState({
+                        rediret: response.data.exito,
+                        message: {
+                            text: response.data.msg,
+                            show: true
+                        },
+                    });
+                    // this.props.changeTab('buscar');
                 }
                 this.setState({ loading: false })
                 // console.log(response.data);
@@ -64,61 +103,63 @@ export default class RecomendadosEditar extends React.Component {
 
                     <legend>Una vez leído terminos y condiciones, por favor diligencie todos los campos</legend>
 
-                <div class="contenedor de campos">
-                    <div class="campo">
-                        <label>Nombre</label>
-                            {/* <input type="text" name="nombre" placeholder="Nombre" required /> */}
+                    <div class="contenedor de campos">
+                        <div class="campo">
+                            <Form.Label>Nombre</Form.Label>
                             <Form.Control
+                                value= { this.state.recomendado.nombre }
                                 onChange = {(e) => this.setValue('nombre', e.target.value)}
                             />
-                    </div>
-                    <div class="campo">
-                        <label>Apellido</label>
-                            {/* <input type="text" name="apellido" placeholder="Apellido" required /> */}
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Apellido</Form.Label>
                             <Form.Control
+                                value= { this.state.recomendado.apellido }
                                 onChange = {(e) => this.setValue('apellido', e.target.value)}
                             />
-                    </div>
-                    <div class="campo">
-                        <label>Teléfono</label>
-                            {/* <input type="tel" name="telefono" placeholder="Teléfono" /> */}
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Teléfono</Form.Label>
                             <Form.Control
+                                value= { this.state.recomendado.telefono }
                                 onChange = {(e) => this.setValue('telefono', e.target.value)}
                             />
-                    </div>
-                    <div class="campo">
-                        <label>Ciudad</label>
-                            {/* <input type="text" name="ciudad" placeholder="Ciudad" /> */}
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Ciudad</Form.Label>
                             <Form.Control
+                                value= { this.state.recomendado.ciudad }
                                 onChange = {(e) => this.setValue('ciudad', e.target.value)}
                             />
-                    </div>
-                    <div class="form-check">
+                        </div>
+                        <div class="form-check">
                          <p>Relacione el (los) servicios que puede prestar </p>
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox1" value="" /> */}
-                            <label for="checkbox1" class="form-check-label">Servicio 1</label>
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Servicio 1</Form.Label>
                             <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_1', e.target.value)}
+                                value= { this.state.recomendado.servicio_1 }
+                                onChange = {(e) => this.setValue('servicio_1', e.target.value)}
                             />
-                    </div>
-                    <div class="form-check">
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox2" value="" /> */}
-                            <label for="checkbox2" class="form-check-label">Servicio 2</label>
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Servicio 2</Form.Label>
                             <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_2', e.target.value)}
+                            value= { this.state.recomendado.servicio_2 }
+                            onChange = {(e) => this.setValue('servicio_2', e.target.value)}
                             />
-                    </div>
-                    <div class="form-check">
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox3" value="" /> */}
-                            <label for="checkbox3" class="form-check-label">Servicio 3</label>
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Servicio 3</Form.Label>
                             <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_3', e.target.value)}
+                            value= { this.state.recomendado.servicio_3 }
+                            onChange = {(e) => this.setValue('servicio_3', e.target.value)}
                             />
-                    </div>
+                        </div>
                    
                    
                     <div class="enviar">
-                            <input class="boton" type="submit" value="Recomendar" onClick={() => console.log(this.guardarRecomendados())} />
+                            <input class="boton" type="submit" value="Editar Recomendado" onClick={() => console.log(this.guardarRecomendados())} />
                             {/* <Form.Control
                                 onChange = {(e) => this.setValue('Servicio_4', e.target.value)}
                             /> */}
