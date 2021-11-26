@@ -2,7 +2,7 @@ import Logocorporativo from './img/Logocorporativo.png';
 import twitter from './img/twitter.png';
 import linkedin from './img/linkedin.png';
 import facebook from './img/facebook.png';
-import instagram from './img/facebook.png';
+import instagram from './img/instagram.png';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {

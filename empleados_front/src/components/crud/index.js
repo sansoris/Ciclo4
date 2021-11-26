@@ -13,7 +13,7 @@ export default class Recomendados extends React.Component {
             currentTab: "buscar",
             _id: null,
         };
-        this.changeTab = This.changeTab.bind(this)
+        this.changeTab = this.changeTab.bind(this)
         this.setIdRecomendado =this.setIdRecomendado.bind(this)
         this.getIdRecomendado =this.getIdRecomendado.bind(this)
             

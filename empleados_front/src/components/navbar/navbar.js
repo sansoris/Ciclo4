@@ -23,7 +23,7 @@ export default class Menu extends React.Component {
                                 alt=""/>
                 
 
-                <Container>
+                <Container fluid="md">
                      <Navbar.Brand href="/home">Se Lo Recomiendo
                         <span id="usuario sub-branm"></span>
                     </Navbar.Brand>

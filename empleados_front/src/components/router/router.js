@@ -10,6 +10,7 @@ import Quienes from '../quienes/quienes';
 import Recomendar from '../recomendar/recomendar';
 import Home from '../home/home';
 import Terminos from '../terminos/terminos';
+import Servicios from '../servicios/servicios';
 
 
 export default function AppRouter() {
@@ -24,7 +25,8 @@ export default function AppRouter() {
                 <Route exact path={["/buscar"]} component={Buscar} />
                 <Route exact path={ ["/quienes"] } component={ Quienes } />
                 <Route exact path={["/recomendar"]} component={Recomendar} />
-                <Route exact path={["/terminos"]} component={ Terminos } />
+                <Route exact path={["/terminos"]} component={Terminos} />
+                <Route exact path={["/servicios"]} component={ Servicios } />
 
                 <Route path={ "*" } component={() => (
                     <h1 style={{ marginTop: 250 }}>

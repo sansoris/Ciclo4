@@ -79,7 +79,7 @@ export default class Home extends React.Component {
                             <Card.Text>
                                 Busca el profesional que necesitas
                             </Card.Text>
-                            <Button id="cardButton" variant="primary">Consulta</Button>
+                            <Button id="cardButton" variant="primary" href="/servicios">Consulta</Button>
                         </Card.Body>
                 </Card>
                 

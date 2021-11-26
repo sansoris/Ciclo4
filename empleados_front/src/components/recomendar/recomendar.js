@@ -55,39 +55,43 @@ export default class Recomendar extends React.Component {
                                 <Form.Label>Ciudad</Form.Label>
                                 <Form.Control type="text" placeholder="Ingrese su ciudad" />
                             </Form.Group>             
-                        </Row>
+                            </Row>
+                                 <h1>Relacione el (los) servicios que puede prestar </h1>
+                            <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formGridName">
+                                <Form.Label>Servicio 1</Form.Label>
+                                <Form.Control type="text" placeholder="Servicio 1" />
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridLastName">
+                                <Form.Label>Servicio 2</Form.Label>
+                                <Form.Control type="text" placeholder="Servicio 2" />
+                            </Form.Group>
+      
+                            <Form.Group as={Col} controlId="formGridZip">
+                                <Form.Label>Servicio 3</Form.Label>
+                                <Form.Control type="text" placeholder="Servicio 3"/>
+                            </Form.Group>            
+                          
+                            </Row>
                     </Form>
 
-                 <div class="form-check">
-                         <p>Relacione el (los) servicios que puede prestar </p>
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox1" value="" /> */}
-                            <label for="checkbox1" class="form-check-label">Servicio 1</label>
-                            <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_1', e.target.value)}
-                            />
-                    </div>
-                    <div class="form-check">
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox2" value="" /> */}
-                            <label for="checkbox2" class="form-check-label">Servicio 2</label>
-                            <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_2', e.target.value)}
-                            />
-                    </div>
-                    <div class="form-check">
-                        {/* <input type="checkbox" class="form-check-input" id="checkbox3" value="" /> */}
+               
+                {/* <div class="form-check">
+                   
                             <label for="checkbox3" class="form-check-label">Servicio 3</label>
                             <Form.Control
                                 onChange = {(e) => this.setValue('Servicio_3', e.target.value)}
                             />
-                    </div>
+                </div>
+                    */}
                    
-                   
-                    <div class="enviar">
+                <div class="enviar">
                             <input class="boton" type="submit" value="Recomendar" onClick={() => console.log(this.guardarRecomendados())} />
                             {/* <Form.Control
                                 onChange = {(e) => this.setValue('Servicio_4', e.target.value)}
                             /> */}
-                    </div>
+                </div>
 
            
             </Col>
