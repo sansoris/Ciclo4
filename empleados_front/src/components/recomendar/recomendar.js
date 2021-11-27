@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import { Form, Container, Row, Col } from "react-bootstrap";
+import { Form, Container, Row, Col, Button } from "react-bootstrap";
 import './recomendar.css';
 import '../assets/css/bootstrap.min.css';
 import '../assets/css/style.css';
@@ -32,7 +32,7 @@ export default class Recomendar extends React.Component {
             <Row>
             <Col>
                 <Row>
-                <h2> Una vez leído terminos y condiciones, por favor diligencie todos los campos </h2>
+                <legend> Una vez leído terminos y condiciones, por favor diligencie todos los campos </legend>
                 </Row>
                     <Form>
                         <Row className="mb-3">
@@ -64,7 +64,7 @@ export default class Recomendar extends React.Component {
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="formGridLastName">
-                                <Form.Label>Servicio 2</Form.Label>
+                                <Form.Label >Servicio 2</Form.Label>
                                 <Form.Control type="text" placeholder="Servicio 2" />
                             </Form.Group>
       
@@ -76,22 +76,20 @@ export default class Recomendar extends React.Component {
                             </Row>
                     </Form>
 
-               
-                {/* <div class="form-check">
+                      <Button
+                            variant="primary"
+                            style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
+                            onClick={() =>
+                                this.setState
+                            }
+                            >Crear Recomendado
+                        </Button>
+           
                    
-                            <label for="checkbox3" class="form-check-label">Servicio 3</label>
-                            <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_3', e.target.value)}
-                            />
-                </div>
-                    */}
-                   
-                <div class="enviar">
-                            <input class="boton" type="submit" value="Recomendar" onClick={() => console.log(this.guardarRecomendados())} />
-                            {/* <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_4', e.target.value)}
-                            /> */}
-                </div>
+                      
+                            {/* <input class="boton" type="submit" value="Recomendar" onClick={() => console.log(this.guardarRecomendados())} /> */}
+                           
+             
 
            
             </Col>

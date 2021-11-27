@@ -64,7 +64,8 @@ export default class Datagrid extends React.Component {
             formatter: (cell, row ) => {
                 // console.log(row);
                 return (
-                    <Button onClick={() => this.props.onClickEditButton(row)}>
+                    <Button style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
+                        onClick={() => this.props.onClickEditButton(row)}>
                         <FontAwesomeIcon icon={faEdit}  />
                     </Button>
                 );

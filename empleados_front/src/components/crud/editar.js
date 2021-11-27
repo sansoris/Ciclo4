@@ -1,12 +1,13 @@
 import React from 'react';
-import { Container, Row, Form } from 'react-bootstrap';
+import { Container, Row, Form , Button} from 'react-bootstrap';
 import { request } from '../helper/helper';
 import Loading from '../loading/loading';
 import '../assets/css/bootstrap.min.css';
 import '../assets/css/style.css';
 import '../assets/css/responsive.css';
 import '../assets/css/jquery.mCustomScrollbar.min.css';
-
+import ConfirmationPrompts from '../prompts/confirmation';
+// import Button from '@restart/ui/esm/Button';
 
 export default class RecomendadosEditar extends React.Component {
     constructor(props) {
@@ -17,6 +18,11 @@ export default class RecomendadosEditar extends React.Component {
             message: {
                 text: '',
                 show: false, 
+            },
+            confirmation: {
+                title: 'Modificar recomendado',
+                text: '¿Desea Modificar el recomendado?',
+                show: false,
             },
 
             loading: false,
@@ -30,6 +36,10 @@ export default class RecomendadosEditar extends React.Component {
                 servicio_3: ""
             }
         };
+
+        this.onCancel= this.onCancel.bind(this);
+        this.onConfirm= this.onConfirm.bind(this);
+
     }
 
 
@@ -87,21 +97,53 @@ export default class RecomendadosEditar extends React.Component {
                 console.error(err);
                 this.setState({ loading: true });
             });
-}
+    }
+    
+    onCancel() {
+        this.setState({
+            confirmation: {
+                ...this.state.confirmation,
+                show: false,
+            }
+        });
+    }
+
+    onConfirm() {
+        this.setState(
+            {
+            confirmation: {
+                ...this.state.confirmation,
+                show: false,
+            },
+        },
+             this.guardarRecomendados()
+        );
+       
+    }
+    
+
     render() {
         return (
-
+        
             <Container id="recomendados-crear-container" >
+
+                <ConfirmationPrompts
+                    show={this.state.confirmation.show}
+                    title={this.state.confirmation.title}
+                    text={this.state.confirmation.text}
+                    onCancel={this.onCancel}
+                    onConfirm={this.onConfirm}
+
+                />
                 <Loading show={ this.state.loading } />
              <Row>
-                    <h2>
+                    <h1>
                         Editar Recomendado
-                    </h2>
+                    </h1>
 
                 </Row>
                 <form class="formulario" action="#" method="POST">
 
-                    <legend>Una vez leído terminos y condiciones, por favor diligencie todos los campos</legend>
 
                     <div class="contenedor de campos">
                         <div class="campo">
@@ -157,22 +199,22 @@ export default class RecomendadosEditar extends React.Component {
                             />
                         </div>
                    
-                   
-                    <div class="enviar">
-                            <input class="boton" type="submit" value="Editar Recomendado" onClick={() => console.log(this.guardarRecomendados())} />
-                            {/* <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_4', e.target.value)}
-                            /> */}
-                    </div>
+                        <Button
+                            variant="primary"
+                            style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
+                            onClick={() =>
+                                this.setState({
+                                    confirmation: { ...this.state.confirmation, show:true},
+                                })
+                            }
+                            >Editar Recomendado
+                        </Button>
+
+      
                 </div>
                 </form>
                 
               
-                
-                    <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12"></div>
-                    <div class="text-bg"></div>
-                    </div>
            </Container >
            
     )

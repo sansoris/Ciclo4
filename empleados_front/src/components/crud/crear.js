@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Form } from 'react-bootstrap';
+import { Container, Row, Form, Button } from 'react-bootstrap';
 import { request } from '../helper/helper';
 import Loading from '../loading/loading';
 import '../assets/css/bootstrap.min.css';
@@ -55,14 +55,13 @@ export default class Recomendadoscrear extends React.Component {
             <Container id="recomendados-crear-container" >
                 <Loading show={ this.state.loading } />
              <Row>
-                    <h2>
+                    <h1>
                         Crear Recomendado
-                    </h2>
+                    </h1>
 
                 </Row>
                 <form class="formulario" action="#" method="POST">
 
-                    <legend>Una vez leído terminos y condiciones, por favor diligencie todos los campos</legend>
 
                 <div class="contenedor de campos">
                     <div class="campo">
@@ -119,22 +118,19 @@ export default class Recomendadoscrear extends React.Component {
                         </div>
                    
                    
-                    <div class="enviar">
-                            <input class="boton" type="submit" value="Recomendar" onClick={() => console.log(this.guardarRecomendados())} />
-                            {/* <Form.Control
-                                onChange = {(e) => this.setValue('Servicio_4', e.target.value)}
-                            /> */}
-                    </div>
+                    <Button
+                            variant="primary"
+                            style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
+                            onClick={() =>
+                                this.setState
+                            }
+                            >Crear Recomendado
+                        </Button>
                 </div>
-                </form>
+            </form>
                 
-              
-                
-                    <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12"></div>
-                    <div class="text-bg"></div>
-                    </div>
-           </Container >
+                    
+           </Container>
            
     )
     
