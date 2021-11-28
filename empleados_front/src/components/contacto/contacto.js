@@ -59,7 +59,15 @@ export default class contacto extends React.Component {
 
             <Button variant="primary" type="submit">
                 Enviar
-            </Button>
+                            </Button>
+                            
+                            
+          <Button
+          
+            style={{ "background-color": '#8b0000', "border-color": '#8b0000' , "margin-top": 60}}
+            href="/home">Regresar
+          </Button>
+        
             </Form>
         </Col>
         </Row>

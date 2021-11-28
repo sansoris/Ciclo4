@@ -6,9 +6,10 @@ import '../assets/css/bootstrap.min.css';
 import '../assets/css/style.css';
 import '../assets/css/responsive.css';
 import '../assets/css/jquery.mCustomScrollbar.min.css';
+import ConfirmationPrompts from '../prompts/confirmation';
 
 
-export default class Recomendadoscrear extends React.Component {
+export default class RecomendadosCrear extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,8 +22,16 @@ export default class Recomendadoscrear extends React.Component {
                 servicio_1: "",
                 servicio_2: "",
                 servicio_3: ""
-            }
+            },
+             confirmation: {
+                title: 'Crear recomendado',
+                text: '¿Desea Crear un recomendado?',
+                show: false,
+            },
         };
+
+        this.onCancel= this.onCancel.bind(this);
+        this.onConfirm= this.onConfirm.bind(this);
     }
 
     setValue(index, value) {
@@ -36,10 +45,17 @@ export default class Recomendadoscrear extends React.Component {
     guardarRecomendados() {
         this.setState({ loading: true });
         request
-            .post('/recomendados', this.state.recomendado)
+            .post(`/recomendados`, this.state.recomendado)
             .then((response) => {
-                if (response.data.exito) {
-                    this.props.changeTab('buscar');
+              if (response.data.exito) {
+                    this.setState({
+                        rediret: response.data.exito,
+                        message: {
+                            text: response.data.msg,
+                            show: true
+                        },
+                    });
+                    // this.props.changeTab('buscar');
                 }
                 this.setState({ loading: false })
                 // console.log(response.data);
@@ -48,11 +64,41 @@ export default class Recomendadoscrear extends React.Component {
                 console.error(err);
                 this.setState({ loading: true });
             });
-}
+    }
+     onCancel() {
+        this.setState({
+            confirmation: {
+                ...this.state.confirmation,
+                show: false,
+            }
+        });
+    }
+
+    onConfirm() {
+        this.setState(
+            {
+            confirmation: {
+                ...this.state.confirmation,
+                show: false,
+            },
+        },
+             this.guardarRecomendados()
+        );
+       
+    }
+
     render() {
         return (
 
             <Container id="recomendados-crear-container" >
+                <ConfirmationPrompts
+                    show={this.state.confirmation.show}
+                    title={this.state.confirmation.title}
+                    text={this.state.confirmation.text}
+                    onCancel={this.onCancel}
+                    onConfirm={this.onConfirm}
+
+                />
                 <Loading show={ this.state.loading } />
              <Row>
                     <h1>
@@ -65,34 +111,34 @@ export default class Recomendadoscrear extends React.Component {
 
                 <div class="contenedor de campos">
                     <div class="campo">
-                        <label>Nombre</label>
-                            {/* <input type="text" name="nombre" placeholder="Nombre" required /> */}
+                        <Form.Label>Nombre</Form.Label>
                             <Form.Control
+                                value= { this.state.recomendado.nombre }
                                 onChange = {(e) => this.setValue('nombre', e.target.value)}
                             />
-                    </div>
-                    <div class="campo">
-                        <label>Apellido</label>
-                            {/* <input type="text" name="apellido" placeholder="Apellido" required /> */}
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Apellido</Form.Label>
                             <Form.Control
+                                value= { this.state.recomendado.apellido }
                                 onChange = {(e) => this.setValue('apellido', e.target.value)}
                             />
-                    </div>
-                    <div class="campo">
-                        <label>Teléfono</label>
-                            {/* <input type="tel" name="telefono" placeholder="Teléfono" /> */}
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Teléfono</Form.Label>
                             <Form.Control
+                                value= { this.state.recomendado.telefono }
                                 onChange = {(e) => this.setValue('telefono', e.target.value)}
                             />
-                    </div>
-                    <div class="campo">
-                        <label>Ciudad</label>
-                            {/* <input type="text" name="ciudad" placeholder="Ciudad" /> */}
+                        </div>
+                        <div class="campo">
+                            <Form.Label>Ciudad</Form.Label>
                             <Form.Control
+                                value= { this.state.recomendado.ciudad }
                                 onChange = {(e) => this.setValue('ciudad', e.target.value)}
                             />
-                    </div>
-                     <div class="form-check">
+                        </div>
+                        <div class="form-check">
                          <p>Relacione el (los) servicios que puede prestar </p>
                         </div>
                         <div class="campo">
@@ -117,19 +163,22 @@ export default class Recomendadoscrear extends React.Component {
                             />
                         </div>
                    
-                   
-                    <Button
+                        <Button
                             variant="primary"
                             style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
                             onClick={() =>
-                                this.setState
+                                this.setState({
+                                    confirmation: { ...this.state.confirmation, show:true},
+                                })
                             }
                             >Crear Recomendado
                         </Button>
+
+      
                 </div>
-            </form>
+                </form>
                 
-                    
+              
            </Container>
            
     )

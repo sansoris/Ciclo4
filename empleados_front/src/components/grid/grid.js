@@ -94,7 +94,7 @@ export default class Datagrid extends React.Component {
                     <>
                         <hr />
         
-                        <PaginationProvider
+                        <PaginationProvider 
                             pagination={paginationFactory(options)}
                         >
                             {
@@ -120,7 +120,8 @@ export default class Datagrid extends React.Component {
                                             { ...props.baseProps }  
 
                                         />
-                                        <PaginationListStandalone
+                                        <PaginationListStandalone 
+                                        
                                             {...paginationProps}
                                         />
                                     </>

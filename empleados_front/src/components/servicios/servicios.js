@@ -31,13 +31,13 @@ export default class Servicios  extends React.Component {
                 </div>
                 <Row>
                     <Col>
-                        <h3>Plomería</h3>
+                        <h3 >Plomería</h3>
                         <img
                             className="banner"
                             src={plomeria}
                             alt="first slide"
                             style={{ width: "120px" }}
-                            href="/Recomendados"
+                            href= '/recomendados'
                         />
                     </Col>
                     <Col>
@@ -47,7 +47,7 @@ export default class Servicios  extends React.Component {
                             src={electricidad}
                             alt="first slide"
                             style={{ width: "120px" }}
-                            href="/Recomendados"
+                            href="/recomendados"
                         />
                     </Col>
                     

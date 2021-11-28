@@ -36,7 +36,7 @@ export default class login extends React.Component {
                         path: '/',
                         expires: calculaExpiracionSesion(),
                     });
-                    this.props.history.push('/recomendados'); // dashboard en usuario valido
+                    this.props.history.push('/dashboard'); // dashboard en usuario valido
                     }
                     
                     this.setState({ loading: false });

@@ -36,13 +36,7 @@ export default class Menu extends React.Component {
                             <Nav.Link href="/terminos">Terminos y Condiciones</Nav.Link>
                             <Nav.Link href="/contacto">Contáctenos</Nav.Link>       
 
-        {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-        </NavDropdown> */}
+        
                         </Nav>
                         <DropdownButton id="dropdown-basic-button" title="Usuario" href="../login ">
                             <Dropdown.Header id= "dropdown-header">
@@ -54,7 +48,7 @@ export default class Menu extends React.Component {
                                 </Row>
                             </Dropdown.Header>
                             <Dropdown.Divider />
-                            <Dropdown.Item href="#/action-1"> Cerrar Sesión</Dropdown.Item>
+                            <Dropdown.Item href="/home"> Cerrar Sesión</Dropdown.Item>
                             
                         {/* <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
                         <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}

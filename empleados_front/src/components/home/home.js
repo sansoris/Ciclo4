@@ -29,30 +29,30 @@ export default class Home extends React.Component {
                         className="banner"
                         src={uno}
                         alt="First slide" />
-                    <Carousel.Caption >
-                        <h1>Se lo Recomiendo</h1>
+                   
+                        <h2>Se lo Recomiendo</h2>
                         <p>Ofrece la solución que su hogar necesita.</p>
-                    </Carousel.Caption>
+                    
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="banner"
                         src={dos}
                         alt="Second slide" />
-                    <Carousel.Caption>
-                        <h1>Se lo Recomiendo</h1>
+                    
+                        <h2>Se lo Recomiendo</h2>
                         <p>¿Cómo funciona?.</p>
-                    </Carousel.Caption>
+                    
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="banner"
                         src={tres}
                         alt="Third slide" />
-                    <Carousel.Caption>
-                        <h1>Se lo Recomiendo</h1>
+                    
+                        <h2>Se lo Recomiendo</h2>
                         <p>Encontrar varios servicios en un solo lugar.</p>
-                    </Carousel.Caption>
+                    
                 </Carousel.Item>
             </Carousel>
                 

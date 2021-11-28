@@ -11,6 +11,7 @@ import Recomendar from '../recomendar/recomendar';
 import Home from '../home/home';
 import Terminos from '../terminos/terminos';
 import Servicios from '../servicios/servicios';
+import Dashboard from '../dashboard/dashboard';
 
 
 export default function AppRouter() {
@@ -18,7 +19,7 @@ export default function AppRouter() {
         <Router>
             <Switch>
                 <Route exact path={ ["/", "/home"] } component={ Home } />
-                {/* <PrivateRoute exact path="/dashboard" component={Dashboard} /> */}
+            
                 <Route exact path={["/login"]} component={ Login } />
                 <Route exact path={["/contacto"]} component={Contacto} />
                 <Route exact path={ ["/recomendados"] } component={ Recomendados } />
@@ -26,7 +27,8 @@ export default function AppRouter() {
                 <Route exact path={ ["/quienes"] } component={ Quienes } />
                 <Route exact path={["/recomendar"]} component={Recomendar} />
                 <Route exact path={["/terminos"]} component={Terminos} />
-                <Route exact path={["/servicios"]} component={ Servicios } />
+                <Route exact path={["/servicios"]} component={Servicios} />
+                <Route exact path={["/dashboard"]} component={ Dashboard } />
 
                 <Route path={ "*" } component={() => (
                     <h1 style={{ marginTop: 250 }}>

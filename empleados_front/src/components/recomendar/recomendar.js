@@ -75,18 +75,27 @@ export default class Recomendar extends React.Component {
                           
                             </Row>
                     </Form>
-
+                        <Form>
+                            <Row>
+                                <Col>
                       <Button
                             variant="primary"
-                            style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
+                            style={{"background-color": '#8b0000', "border-color": '#8b0000', "margin-top": 60 }}
                             onClick={() =>
                                 this.setState
                             }
                             >Crear Recomendado
-                        </Button>
-           
-                   
-                      
+                                    </Button>
+                                    </Col>
+           <Col>
+                    <Button
+          
+            style={{ "background-color": '#8b0000', "border-color": '#8b0000' , "margin-top": 60}}
+            href="/home">Regresar
+          </Button>
+          </Col>
+          </Row>
+ </Form>                     
                             {/* <input class="boton" type="submit" value="Recomendar" onClick={() => console.log(this.guardarRecomendados())} /> */}
                            
              

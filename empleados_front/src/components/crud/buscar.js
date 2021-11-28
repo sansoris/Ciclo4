@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Button, Form } from 'react-bootstrap';
 import '../recomendados/recomendados.css';
 import Datagrid from '../grid/grid';
 
@@ -70,7 +70,14 @@ export default class RecomendadosBuscar extends React.Component {
             showEditButton={true}
             onClickEditButton = {this.onClickEditButton}
           />
-                </Row>
+        </Row>
+        <Form>
+          <Button
+          
+            style={{ "background-color": '#8b0000', "border-color": '#8b0000' , "margin-top": 60}}
+            href="/dashboard">Regresar
+          </Button>
+        </Form>
             </Container>
         );
     }

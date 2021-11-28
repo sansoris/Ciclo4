@@ -37,10 +37,10 @@ export default class ConfirmationPrompts extends React.Component {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary"
+                    <Button variant="secondary" 
                      onClick={() => this.props.onCancel()}
                     >Cancelar</Button>
-                    <Button variant="primary"
+                    <Button variant="primary" style={{ "background-color": '#8b0000', "border-color": '#8b0000' }}
                       onClick={() => this.props.onConfirm()}
                     >Confirmar</Button>
                 </Modal.Footer>
