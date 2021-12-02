@@ -29,88 +29,108 @@ export default class Servicios  extends React.Component {
                             <h1>Se lo recomiendo</h1>
                             <p>NUESTROS RECOMENDADOS PUEDEN AYUDARLE CON LAS SIGUIENTES ACTIVIDADES</p>
                 </div>
-                <Row>
+               
+             <Row>
                     <Col>
                         <h3 >Plomería</h3>
+                        <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={plomeria}
                             alt="first slide"
-                            style={{ width: "120px" }}
-                            href= '/recomendados'
+                            style={{ width: "120px" }}                                                       
                         />
+                        </a>
                     </Col>
                     <Col>
                       <h3>Electricidad</h3>
+                      <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={electricidad}
                             alt="first slide"
-                            style={{ width: "120px" }}
-                            href="/recomendados"
+                            style={{ width: "120px" }}                         
                         />
+                        </a>
                     </Col>
                     
                     <Col> <h3>Cerrajería</h3>
+                    <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={cerrajeria}
                             alt="first slide"
-                            style={{ width: "120px" }}
-                            href="/Recomendados"
-                        /></Col>
+                            style={{ width: "120px" }}                          
+                        />
+                        </a>
+                        </Col>
                 </Row>
                 <Row>
                     <Col><h3>Gasodomésticos</h3>
+                    <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={gasod}
                             alt="first slide"
                             style={{ width: "120px" }}
-                            href="/Recomendados"
-                        /></Col>
+                            
+                        />
+                        </a>
+                        </Col>
                     <Col><h3>Carpintería</h3>
+                    <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={carpinteria}
                             alt="first slide"
-                            style={{ width: "120px" }}
-                            href="/Recomendados"
-                        /></Col>
+                            style={{ width: "120px" }}                            
+                        />
+                        </a>
+                        </Col>
                     <Col><h3>Electrónicos</h3>
+                    <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={electronicos}
                             alt="first slide"
-                            style={{ width: "120px" }}
-                            href="/Recomendados"
-                        /></Col>
+                            style={{ width: "120px" }}                         
+                        />
+                        </a>
+                        </Col>
                 </Row>
                     <Row>
                     <Col><h3>Pintura</h3>
+                    <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={pintura}
                             alt="first slide"
                             style={{ width: "120px" }}
-                            href="/Recomendados"
-                        /></Col>
+                        
+                        />
+                        </a>
+                        </Col>
                     <Col><h3>Mecánica</h3>
+                    <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={mecanica}
                             alt="first slide"
                             style={{ width: "120px" }}
-                            href="/Recomendados"
-                        /></Col>
+                            
+                        />
+                        </a>
+                        </Col>
                     <Col><h3>Albañilería</h3>
+                    <a  href= '/recomendados'>
                         <img
                             className="banner"
                             src={albanileria}
                             alt="first slide"
-                            style={{ width: "120px" }}
-                            href="/Recomendados"
-                        /></Col>
+                            style={{ width: "120px" }}                       
+                        />
+                        </a>
+                        </Col>
                 </Row>
             </Container> 
        

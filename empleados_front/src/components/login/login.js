@@ -36,7 +36,7 @@ export default class login extends React.Component {
                         path: '/',
                         expires: calculaExpiracionSesion(),
                     });
-                    this.props.history.push('/dashboard'); // dashboard en usuario valido
+                    this.props.history.push('/dashboard'); //  en usuario valido
                     }
                     
                     this.setState({ loading: false });
@@ -67,12 +67,15 @@ export default class login extends React.Component {
                     >
                   <Form>
                     <Form.Group>
-                        <Form.Label >Usuario</Form.Label>
+                        <Form.Label style={{ float: 'left' }} >Usuario</Form.Label>
                         <Form.Control 
                         onChange={(e) =>
                             this.setState({ usuario: e.target.value })
                         }
-                        />
+                                        />
+                                        {/* {
+                                            this.state.usuario
+                                        } */}
                        
                         
                         </Form.Group>

@@ -18,7 +18,9 @@ exports.login = function (req, res, next) {
             response.token = jwt.sign({
                 id: usuario._id,
                 usuario: usuario.usuario
-            }, "_recret_")
+            }, "_recret_",
+                { expiresIn: '12h' }
+            );
         }
         res.json(response);
         // console.log(response)

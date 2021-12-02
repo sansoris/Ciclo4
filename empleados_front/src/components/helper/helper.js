@@ -56,7 +56,7 @@ export const request = {
 
     delete: function (services, data) {
         let token = renovarSesion();
-        return axios.delete(`${host}${services}`, data,  {
+        return axios.delete(`${host}${services}`,   {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

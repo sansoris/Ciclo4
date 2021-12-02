@@ -13,6 +13,12 @@ export default class RecomendadosCrear extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            redirect: false,
+            confirmation: {
+                title: 'Crear recomendado',
+                text: '¿Desea Crear un recomendado?',
+                show: false,
+            },
             loading: false,
             recomendado: {
                 nombre: "",
@@ -23,13 +29,9 @@ export default class RecomendadosCrear extends React.Component {
                 servicio_2: "",
                 servicio_3: ""
             },
-             confirmation: {
-                title: 'Crear recomendado',
-                text: '¿Desea Crear un recomendado?',
-                show: false,
-            },
+             
         };
-
+        this.onExitedMessage = this.onExitedMessage.bind(this);
         this.onCancel= this.onCancel.bind(this);
         this.onConfirm= this.onConfirm.bind(this);
     }
@@ -52,7 +54,7 @@ export default class RecomendadosCrear extends React.Component {
                         rediret: response.data.exito,
                         message: {
                             text: response.data.msg,
-                            show: true
+                            show: true,
                         },
                     });
                     // this.props.changeTab('buscar');
@@ -86,15 +88,20 @@ export default class RecomendadosCrear extends React.Component {
         );
        
     }
+    onExitedMessage() {
+        if (this.state.redirect) this.props.changeTab('buscar');
+    }
 
     render() {
         return (
 
             <Container id="recomendados-crear-container" >
                 <ConfirmationPrompts
-                    show={this.state.confirmation.show}
-                    title={this.state.confirmation.title}
                     text={this.state.confirmation.text}
+                    show={this.state.confirmation.show}
+                    duration={2500}
+                    onExited= {this.onExitedMessage}
+                    title={this.state.confirmation.title}
                     onCancel={this.onCancel}
                     onConfirm={this.onConfirm}
 

@@ -13,7 +13,7 @@ import { request } from '../helper/helper';
 import Loading from '../loading/loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { isUndefined } from 'util';
 
 const { SearchBar } = Search;
@@ -31,6 +31,9 @@ export default class Datagrid extends React.Component {
     
         if (this.props.showEditButton && !this.existsColumn('Editar'))
             this.props.columns.push(this.getEditButton());
+        
+         if (this.props.showDeleteButton && !this.existsColumn('Eliminar'))
+            this.props.columns.push(this.getDeleteButton());
     }
 
     componentDidMount() {
@@ -67,6 +70,22 @@ export default class Datagrid extends React.Component {
                     <Button style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
                         onClick={() => this.props.onClickEditButton(row)}>
                         <FontAwesomeIcon icon={faEdit}  />
+                    </Button>
+                );
+            },
+            
+        };
+    }
+
+    getDeleteButton() {
+        return {
+            text:'Eliminar',
+            formatter: (cell, row ) => {
+                // console.log(row);
+                return (
+                    <Button style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
+                        onClick={() => this.props.onClickDeleteButton(row)}>
+                        <FontAwesomeIcon icon={faTrash}  />
                     </Button>
                 );
             },

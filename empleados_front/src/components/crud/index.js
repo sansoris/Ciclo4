@@ -36,7 +36,9 @@ export default class Recomendados extends React.Component {
         return (
             <Container id= "recomendados-buscar-container" >
                 <Row>
-                    <Nav fill variant="tabs" defaultActiveKey="/buscar"
+                    <Nav fill
+                        variant="tabs"
+                        defaultActiveKey="buscar"
                         onSelect={(eventKey) =>
                             // console.log(eventKey)
                             this.setState({ currentTab: eventKey })}

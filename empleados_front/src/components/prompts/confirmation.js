@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-
+import { isUndefined, isNull } from 'util';
 
 export default class ConfirmationPrompts extends React.Component {
     constructor(props) {
@@ -14,18 +14,35 @@ export default class ConfirmationPrompts extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         
-        // if (nextProps.show)
-            this.setState({
-                show: nextProps.show,
-                title: nextProps.title,
-                text: nextProps.text
-            });
+        if (nextProps.show)
+            this.setState({ show: true }, this.hideMessage());
+
+                // show: nextProps.show,
+                // title: nextProps.title,
+                // text: nextProps.text
+            // });
+    }
+
+    hideMessage() {
+        setTimeout(() => {
+            this.setState({ show: false });
+        }, this.props.duration);
+    }
+
+    onExited() {
+        if (!isUndefined(this.props.onExited) && !isNull(this.props.onExited))
+            this.props.onExited();
     }
 
     render() { 
         return (
-            <Modal show={this.state.show}
+            <Modal style={{
+                "display": 'flex',
+                "alingn-items": 'center'}} 
+
                 centered
+                show={this.state.show}
+                onExited={()=> this.onExited()}
                 onHide={() => this.props.onCancel()}
             >
                 <Modal.Header closeButton>
@@ -33,7 +50,7 @@ export default class ConfirmationPrompts extends React.Component {
                 </Modal.Header>
 
                 <Modal.Body>
-                    <p>{this.state.text}</p>
+                    {this.props.text}
                 </Modal.Body>
 
                 <Modal.Footer>

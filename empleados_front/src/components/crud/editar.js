@@ -74,10 +74,11 @@ export default class RecomendadosEditar extends React.Component {
             },
         })
     }
+
+
     guardarRecomendados() {
         this.setState({ loading: true });
         request
-            
             .put(`/recomendados/${this.state.idRecomendado}`, this.state.recomendado)
             .then((response) => {
                 if (response.data.exito) {
@@ -111,12 +112,12 @@ export default class RecomendadosEditar extends React.Component {
     onConfirm() {
         this.setState(
             {
-            confirmation: {
-                ...this.state.confirmation,
-                show: false,
+                confirmation: {
+                    ...this.state.confirmation,
+                    show: false,
+                },
             },
-        },
-             this.guardarRecomendados()
+            this.guardarRecomendados()
         );
        
     }

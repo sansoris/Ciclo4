@@ -11,7 +11,7 @@ var cors = require('cors');
 var usuariosRouter = require('./routes/usuario.router');
 var empleadosRouter = require('./routes/empleados.router');
 var recomendadosRouter = require('./routes/recomendados.router');
-
+var contactosRouter = require('./routes/contactos.router');
 
 var app = express();
 
@@ -31,6 +31,7 @@ app.use('/usuarios', usuariosRouter);
 //Router
 app.use('/empleados', empleadosRouter);
 app.use('/recomendados', recomendadosRouter);
+app.use('/contactos', contactosRouter);
 
 app.use(auth)
 
