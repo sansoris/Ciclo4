@@ -54,7 +54,7 @@ export const request = {
         });
     },
 
-    delete: function (services, data) {
+    delete: function (services) {
         let token = renovarSesion();
         return axios.delete(`${host}${services}`,   {
             headers: {

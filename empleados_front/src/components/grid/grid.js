@@ -24,9 +24,8 @@ export default class Datagrid extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: false,
+            Loading: false,
             rows: [],
-           
         };
     
         if (this.props.showEditButton && !this.existsColumn('Editar'))
@@ -41,13 +40,13 @@ export default class Datagrid extends React.Component {
     }
 
     getData() {
-        this.setState({loading:false });
+        this.setState({ loading:true });
         request
             .get(this.props.url)
             .then((response) => {
                 this.setState({
                     rows: response.data,
-                    Loading: false,
+                    loading: false,
                 });
             })
             .catch((err) => {
@@ -68,7 +67,10 @@ export default class Datagrid extends React.Component {
                 // console.log(row);
                 return (
                     <Button style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
-                        onClick={() => this.props.onClickEditButton(row)}>
+                        onClick={() =>
+                            // console.log(row)
+                            this.props.onClickEditButton(row)
+                        } >
                         <FontAwesomeIcon icon={faEdit}  />
                     </Button>
                 );
@@ -83,8 +85,8 @@ export default class Datagrid extends React.Component {
             formatter: (cell, row ) => {
                 // console.log(row);
                 return (
-                    <Button style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
-                        onClick={() => this.props.onClickDeleteButton(row)}>
+                    <Button style={{ "background-color": '#8b0000', "border-color": '#8b0000' }}
+                        onClick={()=> this.props.onClickDeleteButton(row)}>
                         <FontAwesomeIcon icon={faTrash}  />
                     </Button>
                 );
@@ -101,19 +103,20 @@ export default class Datagrid extends React.Component {
         
         return (
             <>
-            <Loading show={ this.state.loading } />
+            <Loading show={this.state.loading} />
             <ToolkitProvider
             keyField="tp"
             data={this.state.rows}
             columns={this.props.columns}
             search
         >
-            {
-                props => (
+            {(props) => (
                     <>
                         <hr />
         
-                        <PaginationProvider 
+                            <PaginationProvider
+                            
+
                             pagination={paginationFactory(options)}
                         >
                             {
@@ -140,7 +143,7 @@ export default class Datagrid extends React.Component {
 
                                         />
                                         <PaginationListStandalone 
-                                        
+
                                             {...paginationProps}
                                         />
                                     </>

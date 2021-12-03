@@ -2,11 +2,11 @@ import React from 'react';
 import { Container, Row, Button, Form } from 'react-bootstrap';
 import '../recomendados/recomendados.css';
 import Datagrid from '../grid/grid';
-import ConfirmationPrompts from '../prompts/confirmation';
 import { request } from '../helper/helper';
 import Loading from '../loading/loading';
 
-// import MessagePrompt from '../prompts/message'
+import MessagePrompt from '../prompts/message'
+import ConfirmationPrompts from '../prompts/confirmation';
 
 const columns = [{
   dataField: 'id',
@@ -62,16 +62,17 @@ export default class RecomendadosBuscar extends React.Component {
         },
       };
 
-      this.onCancel = this.onCancel.bind(this);
-      this.onConfirm = this.onConfirm.bind(this);
+     
       this.onClickEditButton = this.onClickEditButton.bind(this);
       this.onClickDeleteButton = this.onClickDeleteButton.bind(this);
-      
+      this.onCancel = this.onCancel.bind(this);
+      this.onConfirm = this.onConfirm.bind(this);
     }
 
   componentDidMount() { }
   
   onClickEditButton(row) {
+    // console.log(row)
     this.props.setIdRecomendado(row._id);
     this.props.changeTab('editar');
     
@@ -82,8 +83,8 @@ export default class RecomendadosBuscar extends React.Component {
     // this.props.setIdRecomendado(row._id);
     // this.props.changeTab('eliminar');
     this.setState({
+      idRecomendado:row._id,
       confirmation: {
-        idRecomendado:row._id,
         ...this.state.confirmation,
         show: true,
       },
@@ -102,11 +103,11 @@ export default class RecomendadosBuscar extends React.Component {
   onConfirm() {
     this.setState(
       {
-      confirmation: {
-        ...this.state.confirmation,
-        show: false,
+        confirmation: {
+          ...this.state.confirmation,
+          show: false,
+        },
       },
-    },
       this.eliminarRecomendado()
     );
   }
@@ -114,7 +115,7 @@ export default class RecomendadosBuscar extends React.Component {
   eliminarRecomendado() {
     this.setState({ loading: true });
     request
-      .delete(`/recomendado/${this.state.idRecomendado}`)
+      .delete(`/recomendados/${this.state.idRecomendado}`)
       .then((response) => {
         this.setState({
           loading: false,
@@ -123,6 +124,7 @@ export default class RecomendadosBuscar extends React.Component {
             show: true,
           },
         });
+        
          this.setState({ loading: false });
         // if (response.data.exito) window.location.reload();
         if (response.data.exito) this.reLoadPage();
@@ -152,16 +154,15 @@ export default class RecomendadosBuscar extends React.Component {
           text={this.state.confirmation.text}
           onCancel={this.onCancel}
           onConfirm={this.onConfirm}
-          duration={1000}
-          onExited={this.onExitedMessage}
+         
         />
 
-        {/* <MessagePrompt
+        <MessagePrompt
           text={this.state.message.text}
           show={this.state.message.show}
           duration={2500}
           onExited={this.onExitedMessage}
-        /> */}
+        />
 
         <Loading show={this.state.loading} />
 
@@ -176,7 +177,7 @@ export default class RecomendadosBuscar extends React.Component {
             showEditButton={true}
             showDeleteButton={true}
             onClickEditButton={this.onClickEditButton}
-            onClicDeleteButton={this.onClicDeleteButton}
+            onClickDeleteButton={this.onClickDeleteButton}
           />
         </Row>
         <Form>

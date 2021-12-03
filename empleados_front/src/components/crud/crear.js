@@ -6,19 +6,25 @@ import '../assets/css/bootstrap.min.css';
 import '../assets/css/style.css';
 import '../assets/css/responsive.css';
 import '../assets/css/jquery.mCustomScrollbar.min.css';
-import ConfirmationPrompts from '../prompts/confirmation';
-
+// import ConfirmationPrompts from '../prompts/confirmation';
+import MessagePrompt from '../prompts/message';
 
 export default class RecomendadosCrear extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             redirect: false,
-            confirmation: {
-                title: 'Crear recomendado',
-                text: '¿Desea Crear un recomendado?',
+            message: {
+                text: "",
                 show: false,
             },
+
+            confirmation: {
+            title: 'Crear recomendado',
+            text: '¿Desea crear un recomendado?',
+            show: false,
+            },
+
             loading: false,
             recomendado: {
                 nombre: "",
@@ -31,6 +37,7 @@ export default class RecomendadosCrear extends React.Component {
             },
              
         };
+
         this.onExitedMessage = this.onExitedMessage.bind(this);
         this.onCancel= this.onCancel.bind(this);
         this.onConfirm= this.onConfirm.bind(this);
@@ -49,16 +56,17 @@ export default class RecomendadosCrear extends React.Component {
         request
             .post(`/recomendados`, this.state.recomendado)
             .then((response) => {
-              if (response.data.exito) {
+                if (response.data.exito) {
+                    // window.location.reload();
                     this.setState({
                         rediret: response.data.exito,
                         message: {
                             text: response.data.msg,
                             show: true,
                         },
-                    });
-                    // this.props.changeTab('buscar');
-                }
+                        });
+                // this.props.changeTab('buscar');
+    }
                 this.setState({ loading: false })
                 // console.log(response.data);
             })
@@ -67,36 +75,47 @@ export default class RecomendadosCrear extends React.Component {
                 this.setState({ loading: true });
             });
     }
-     onCancel() {
+
+  onExitedMessage() {
+        if (this.state.redirect) this.props.changeTab('buscar');
+    }
+
+    onCancel() {
         this.setState({
             confirmation: {
                 ...this.state.confirmation,
                 show: false,
-            }
+            },
         });
     }
 
-    onConfirm() {
+     onConfirm() {
         this.setState(
             {
-            confirmation: {
-                ...this.state.confirmation,
-                show: false,
+                confirmation: {
+                    ...this.state.confirmation,
+                    show: false,
+                },
             },
-        },
-             this.guardarRecomendados()
+            this.guardarRecomendados()
         );
        
     }
-    onExitedMessage() {
-        if (this.state.redirect) this.props.changeTab('buscar');
-    }
+  
 
     render() {
         return (
 
             <Container id="recomendados-crear-container" >
-                <ConfirmationPrompts
+                <MessagePrompt
+                    text={this.state.message.text}
+                    show={this.state.message.show}
+                    duration={2000}
+                    onExited= {this.onExitedMessage}
+
+                />
+                
+                {/* <ConfirmationPrompts
                     text={this.state.confirmation.text}
                     show={this.state.confirmation.show}
                     duration={2500}
@@ -105,7 +124,7 @@ export default class RecomendadosCrear extends React.Component {
                     onCancel={this.onCancel}
                     onConfirm={this.onConfirm}
 
-                />
+                /> */}
                 <Loading show={ this.state.loading } />
              <Row>
                     <h1>
@@ -172,12 +191,13 @@ export default class RecomendadosCrear extends React.Component {
                    
                         <Button
                             variant="primary"
-                            style={{"background-color": '#8b0000', "border-color": '#8b0000' }}
+                            style={{ "background-color": '#8b0000', "border-color": '#8b0000' }}
                             onClick={() =>
-                                this.setState({
-                                    confirmation: { ...this.state.confirmation, show:true},
-                                })
-                            }
+                                console.log(this.guardarRecomendados())}
+                                // this.setState({
+                                //     confirmation: { ...this.state.confirmation, show:true},
+                                // }
+                            // }
                             >Crear Recomendado
                         </Button>
 

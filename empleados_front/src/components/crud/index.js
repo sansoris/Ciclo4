@@ -57,9 +57,11 @@ export default class Recomendados extends React.Component {
                                 changeTab={(this.changeTab)}
                                 setIdRecomendado={this.setIdRecomendado}
                             />
-                        ) : this.state.currentTab === "crear"? (                            
+                        )  : this.state.currentTab === "crear"? (                            
                                 <RecomendadosCrear
-                                    changeTab={(tab) => this.changeTab(tab)} />
+                                    // changeTab={(tab) => this.changeTab(tab)}
+                                    changeTab={this.changeTab}
+                                />
                         ) : (
                                     <RecomendadosEditar
                                         changeTab={(this.changeTab)}
